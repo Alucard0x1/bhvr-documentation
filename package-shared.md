@@ -1,0 +1,22 @@
+Title: shared
+
+URL Source: https://bhvr.dev/packages/shared
+
+Markdown Content:
+The `shared` package is primarily used for types that you may want to pass between server and client, but it can also be used for functions or libraries. When you create a project with `bun create bhvr@latest` this is the structure of the package.
+
+```
+shared
+├── package.json
+├── src
+│   ├── index.ts
+│   └── types
+│       └── index.ts
+└── tsconfig.json
+```
+
+It will resemble a barrel export pattern, so the contents of `src/index.ts` are the following
+
+`export * from "./types"`
+
+By running either `bun run build` or `bun run dev` the types will be compiled and exported from the `dist` build folder and can be used in `client` or `server`.
